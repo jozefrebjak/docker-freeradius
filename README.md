@@ -118,5 +118,5 @@ Received Access-Accept Id 152 from 127.0.0.1:1812 to 127.0.0.1:56635 length 32
 
 ## Resources
 
-[How to use radiusd -X (debug mode)](https://wiki.freeradius.org/guide/radiusd-X)
-[HOWTO for freeradius 3.x on Debian Ubuntu](https://wiki.freeradius.org/guide/SQL-HOWTO-for-freeradius-3.x-on-Debian-Ubuntu)
+- [How to use radiusd -X (debug mode)](https://wiki.freeradius.org/guide/radiusd-X)
+- [HOWTO for freeradius 3.x on Debian Ubuntu](https://wiki.freeradius.org/guide/SQL-HOWTO-for-freeradius-3.x-on-Debian-Ubuntu)
