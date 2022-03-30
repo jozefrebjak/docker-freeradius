@@ -1,0 +1,46 @@
+version: '3.2'
+
+services:
+  radius:
+    image: "jozefrebjak/freeradius:3.0.25"
+    container_name: "radius"
+    ports:
+      - "1812:1812/udp"
+      - "1813:1813/udp"
+    environment:
+      #- DB_NAME=radius
+      - DB_HOST=mysql
+      #- DB_USER=radius
+      #- DB_PASS=radpass
+      #- DB_PORT=3306
+    depends_on:
+      - mysql
+    links:
+      - mysql
+    restart: always
+    networks:
+      - backend
+
+  mysql:
+    image: "mysql"
+    container_name: "mysql"
+    ports:
+      - "3306:3306"
+    volumes:
+      - "./configs/mysql/master/data:/var/lib/mysql"
+      #- "./configs/mysql/master/conf.d:/etc/mysql/conf.d"
+      - "./configs/mysql/radius.sql:/docker-entrypoint-initdb.d/radius.sql"
+    environment:
+      - MYSQL_ROOT_PASSWORD=radius
+      - MYSQL_USER=radius
+      - MYSQL_PASSWORD=radpass
+      - MYSQL_DATABASE=radius
+    restart: always
+    networks:
+      - backend
+
+networks:
+  backend:
+    ipam:
+      config:
+        - subnet: 10.0.0.0/24

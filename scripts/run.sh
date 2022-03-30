@@ -1,0 +1,1 @@
+docker run --rm -d --name radius -p 1812-1813:1812-1813/udp my-radius-image

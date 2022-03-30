@@ -1,0 +1,1 @@
+docker run --name radius -d freeradius/freeradius-server
